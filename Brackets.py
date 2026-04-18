@@ -34,5 +34,5 @@ def check_str(str_to_check):
 
     return True
 
-check_str("([)]")
+
 
