@@ -1,15 +1,15 @@
 def check_str(str_to_check):
-    queue = []
+    stack = []
     for i in str_to_check.replace(" ", ""):
-        if len(queue) != 0:
+        if len(stack) != 0:
 
             if i in "({[":
-                queue.append(i)
+                stack.append(i)
 
             elif i in ")]}":
 
-                if (i == ")" and queue[-1] == "(") or (i == "]" and queue[-1] == "[") or (i == "}" and queue[-1] == "{"):
-                    queue.pop()
+                if (i == ")" and stack[-1] == "(") or (i == "]" and stack[-1] == "[") or (i == "}" and stack[-1] == "{"):
+                    stack.pop()
                 else:
                     print("не та скобка")
                     return False
@@ -26,9 +26,9 @@ def check_str(str_to_check):
                 print("не скобка")
                 return False
             else:
-                queue.append(i)
+                stack.append(i)
 
-    if len(queue) != 0:
+    if len(stack) != 0:
         print("нет закрывающей скобки")
         return False
 
