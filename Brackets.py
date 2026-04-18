@@ -1,6 +1,6 @@
 def check_str(str_to_check):
     queue = []
-    for i in str_to_check:
+    for i in str_to_check.replace(" ", ""):
         if len(queue) != 0:
 
             if i in "({[":
@@ -11,28 +11,28 @@ def check_str(str_to_check):
                 if (i == ")" and queue[-1] == "(") or (i == "]" and queue[-1] == "[") or (i == "}" and queue[-1] == "{"):
                     queue.pop()
                 else:
-                    print("wrong bracket")
+                    print("не та скобка")
                     return False
 
             else:
-                print("not a bracket")
+                print("не скобка")
                 return False
 
         else:
             if i in "]})":
-                print("no open bracket")
+                print("нет открывающей скобки")
                 return False
             elif i not in "([{":
-                print("not a bracket")
+                print("не скобка")
                 return False
             else:
                 queue.append(i)
 
     if len(queue) != 0:
-        print("no close bracket")
+        print("нет закрывающей скобки")
         return False
 
     return True
 
-check_str("(){}[][")
+check_str("([)]")
 
